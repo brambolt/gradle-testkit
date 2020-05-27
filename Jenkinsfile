@@ -11,8 +11,8 @@ node {
     withCredentials(
       [usernamePassword(
         credentialsId: env.JENKINS_MAVEN_CREDS, 
-        usernameVariable: 'ORG_GRADLE_PROJECT_mavenUser',
-        passwordVariable: 'ORG_GRADLE_PROJECT_mavenToken'),
+        usernameVariable: 'ORG_GRADLE_PROJECT_artifactoryUser',
+        passwordVariable: 'ORG_GRADLE_PROJECT_artifactoryToken'),
        usernamePassword(
         credentialsId: env.JENKINS_VCS_CREDS,
         usernameVariable: 'ORG_GRADLE_PROJECT_vcsUser',
