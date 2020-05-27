@@ -1,6 +1,6 @@
 
 plugins {
-  id 'com.brambolt.gradle.pluginbuild' version '2020.05.25-4018' apply false
+  id 'com.brambolt.gradle.pluginbuild' version '2020.05.25-4020' apply false
 }
 
 description = 'A Gradle plug-in with opinionated test utilities.'
