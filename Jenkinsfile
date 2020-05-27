@@ -10,12 +10,11 @@ node {
 
     withCredentials(
       [usernamePassword(
-        // The Jenkins server also has a gradle.properties in ~/.gradle
-        credentialsId: 'artifactory.brambolt.io',
+        credentialsId: env.JENKINS_MAVEN_CREDS, 
         usernameVariable: 'ORG_GRADLE_PROJECT_mavenUser',
         passwordVariable: 'ORG_GRADLE_PROJECT_mavenToken'),
        usernamePassword(
-        credentialsId: 'gitlab.brambolt.io',
+        credentialsId: env.JENKINS_VCS_CREDS,
         usernameVariable: 'ORG_GRADLE_PROJECT_vcsUser',
         passwordVariable: 'ORG_GRADLE_PROJECT_vcsToken')]) {
 
