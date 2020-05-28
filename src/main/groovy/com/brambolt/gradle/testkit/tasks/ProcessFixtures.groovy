@@ -57,6 +57,8 @@ class ProcessFixtures extends DefaultTask {
   @TaskAction
   void apply() {
     switch (fixtures) {
+      case null:
+        break // No input, no output...
       case { it instanceof List }:
         applyMultiple(fixtures as List)
         break

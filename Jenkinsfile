@@ -23,8 +23,7 @@ node {
           "-Dgradle.user.home=${env.HOME}/.gradle " 
       ]) {
         sh 'echo ${GRADLE_OPTS}'
-
-        sh './gradlew clean artifactoryPublish -PbuildNumber=${BUILD_NUMBER} --info --stacktrace --no-daemon --refresh-dependencies'
+        sh './gradlew clean all -PbuildNumber=${BUILD_NUMBER} --info --stacktrace --no-daemon --refresh-dependencies'
       }
     }
   }
