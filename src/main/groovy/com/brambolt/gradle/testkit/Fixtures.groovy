@@ -42,8 +42,19 @@ class Fixtures {
 
   static File createFileFixture(
     String resourceName, TemporaryFolder testProjectDir) {
-    File zipFile = testProjectDir.newFile(resourceName)
-    copyURLToFile(Thread.getResource("/${resourceName}"), zipFile)
+    createFileFixture(resourceName, testProjectDir, null)
+  }
+
+  static File createFileFixture(
+  String resourceName, TemporaryFolder testProjectDir, String suffix) {
+    String fileName = resourceName + (null != suffix ? suffix : '')
+    File zipFile = testProjectDir.newFile(fileName)
+    String resourcePath = "/${resourceName}"
+    URL url = Thread.getResource(resourcePath)
+    if (null == url)
+      throw new IllegalStateException(
+        "Unable to access locate class path resource: ${resourcePath}")
+    copyURLToFile(url, zipFile)
     zipFile
   }
 
