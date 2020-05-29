@@ -34,8 +34,8 @@ class Fixtures {
   static File createDirectoryFixture(
     String resourceName, File fixtureFile, File fixtureDir) {
     Expand expand = new Expand()
+    expand.setSrc(fixtureFile)
     expand.setDest(fixtureDir)
-    expand.setSrc()
     expand.execute()
     fixtureDir
   }
