@@ -1,10 +1,10 @@
 package com.brambolt.gradle
 
-import com.brambolt.gradle.testkit.tasks.ProcessFixtures
+import com.brambolt.gradle.testkit.tasks.ProcessTestFixtures
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.api.Task
-import org.gradle.api.tasks.testing.Test
+import org.gradle.language.jvm.tasks.ProcessResources
 
 /**
  * A Gradle plug-in with opinionated test utilities.
@@ -22,24 +22,26 @@ class TestkitPlugin implements Plugin<Project> {
    */
   void apply(Project project) {
     project.logger.debug("Applying ${getClass().getCanonicalName()}.")
-    Task processFixtures = createProcessFixturesTask(project)
-    configureDefaultTaskDependencies(project, processFixtures)
+    Task processTestFixtures = createProcessTestFixturesTask(project)
+    configureDefaultTaskDependencies(project, processTestFixtures)
   }
 
-  protected Task createProcessFixturesTask(Project project) {
+  protected Task createProcessTestFixturesTask(Project project) {
     project.task(
       // Apply an empty configuration closure to set defaults, if any:
-      [type: ProcessFixtures], 'processFixtures') {}
+      [type: ProcessTestFixtures], 'processTestFixtures') {}
 
   }
 
-  protected void configureDefaultTaskDependencies(Project project, Task processFixtures) {
-    try {
-      project.tasks.withType(Test).named('test') { Task t ->
-        t.dependsOn(processFixtures)
+  protected void configureDefaultTaskDependencies(Project project, Task processTestFixtures) {
+    project.afterEvaluate { Project p ->
+      try {
+        p.tasks.withType(ProcessResources).named('processTestResources') { Task t ->
+          t.dependsOn(processTestFixtures)
+        }
+      } catch (Exception x) {
+        project.logger.debug('Unable to add task dependency', x)
       }
-    } catch (Exception x) {
-      project.logger.debug('Unable to add task dependency', x)
     }
   }
 }

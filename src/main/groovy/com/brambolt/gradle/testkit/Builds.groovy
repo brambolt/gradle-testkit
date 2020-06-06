@@ -3,7 +3,7 @@ package com.brambolt.gradle.testkit
 import org.gradle.testkit.runner.GradleRunner
 import org.junit.rules.TemporaryFolder
 
-class Builds {
+class uilds {
 
   /**
    * Creates a build file for testing.
@@ -24,6 +24,7 @@ class Builds {
       .withProjectDir(dir)
       .withArguments(args)
       .withPluginClasspath()
+      .withDebug(true)
       .build()
   }
 }
