@@ -38,7 +38,7 @@ ext {
   pluginClass = 'com.brambolt.gradle.TestkitPlugin'
   pluginDisplayName = 'Brambolt Test Kit plugin'
   pluginId = 'com.brambolt.gradle.testkit'
-  pluginTags = [ 'test'  ]
+  pluginTags = [ 'test' ]
   pluginWebsite = 'https://github.com/brambolt/gradle-testkit'
   release = bramboltRelease
   vcsUrl = 'https://github.com/brambolt/gradle-testkit'
@@ -47,17 +47,17 @@ ext {
 apply plugin: 'com.brambolt.gradle.build.plugin'
 
 dependencies {
-  api 'org.junit.jupiter:junit-jupiter-api:latest.release'
-  api 'org.slf4j:slf4j-api:latest.release'
-  api 'org.spockframework:spock-core:1.3-groovy-2.5'
+  api "org.junit.jupiter:junit-jupiter-api:${junitJupiterVersion}"
+  api "org.slf4j:slf4j-api:${slf4jVersion}"
+  api "org.spockframework:spock-core:${spockVersion}"
   implementation gradleTestKit()
   implementation "com.brambolt:brambolt-rt:${version}"
   implementation "com.brambolt.gradle:brambolt-gradle-rt:${version}"
-  implementation 'org.apache.ant:ant:latest.release'
+  implementation "org.apache.ant:ant:${apacheAntVersion}"
   implementation 'org.apache.commons:commons-io:latest.release'
-  implementation 'org.junit.jupiter:junit-jupiter-engine:latest.release'
-  implementation 'org.junit.jupiter:junit-jupiter-params:latest.release'
-  implementation 'org.junit.platform:junit-platform-launcher:latest.release'
-  implementation 'org.junit.vintage:junit-vintage-engine:latest.release'
-  implementation 'org.slf4j:slf4j-simple:latest.release'
+  implementation "org.junit.jupiter:junit-jupiter-engine:${junitJupiterVersion}"
+  implementation "org.junit.jupiter:junit-jupiter-params:${junitJupiterVersion}"
+  implementation "org.junit.platform:junit-platform-launcher:${junitPlatformVersion}"
+  implementation "org.junit.vintage:junit-vintage-engine:${junitJupiterVersion}"
+  implementation "org.slf4j:slf4j-simple:${slf4jVersion}"
 }

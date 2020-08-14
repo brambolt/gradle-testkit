@@ -19,6 +19,8 @@ pluginManagement {
     mavenLocal()
     gradlePluginPortal()
     maven { url 'https://dl.bintray.com/brambolt/public' }
+    mavenCentral()
+    jcenter()
   }
   plugins {
     id 'com.brambolt.gradle.build.plugin' version bramboltVersion
