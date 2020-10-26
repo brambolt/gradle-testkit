@@ -28,6 +28,7 @@ ext {
     id: 'stefan.sigurdsson@brambolt.com',
     name: 'Stefán Sigurðsson'
   ]]
+  isGitHosted = true
   isOpenSource = true // Enables publishing to plugins.gradle.org and Bintray
   inceptionYear = '2017'
   licenses = [[
