@@ -27,4 +27,4 @@ pluginManagement {
   }
 }
 
-rootProject.name = 'gradle-testkit'
+rootProject.name = 'brambolt-gradle-testkit'
